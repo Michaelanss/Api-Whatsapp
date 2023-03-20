@@ -32,3 +32,30 @@ Paso 5:
 npm run dev
 
 ```
+
+Paso 6:
+Crear un archivo .py con el siguiente codigo y luego ejecutarlo.
+```
+import requests
+import time 
+
+def sendMessage(para, mensaje):
+    url = 'http://localhost:3001/lead'
+    
+    data = {
+        "message": mensaje,
+        "phone": para
+    }
+    headers = {
+        'Content-Type':'application/json'
+    }
+    print(data)
+    response = requests.post(url, json=data, headers=headers)
+    time.sleep(10)
+    return response
+```
+Paso 7:
+en el archivo .py creado en el punto anterior agregar la siguiente linea especificando un numero de telefono real al que se va a mandar el mensaje y el mensaje correspondiente entre ''
+```
+sendMessage('XXXXXXXXX', 'Este es el mensaje')
+```
